@@ -50,7 +50,7 @@ function App() {
         {photos.map((item) => {
           return (
             <div className="column" key={item.id}>
-              <img src={item.url} alt="random color selection" />
+              <img src={item.url} alt={item.title} />
             </div>
           );
         })}

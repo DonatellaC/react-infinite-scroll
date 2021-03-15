@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Instructions
 
-## Available Scripts
+- Please complete the user story below.
 
-In the project directory, you can run:
+- Your code should compile (if necessary) and run in one step. It is ok if there is a build process.
 
-### `yarn start`
+- JavaScript should be used as a platform.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Use React.js.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Styles can be added with frameworks, libraries, plain css, preprocessors or postprocessors, be imaginative!
 
-### `yarn test`
+- You must use this placeholder URL for getting the images: <https://jsonplaceholder.typicode.com/photos>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Nice to have
 
-### `yarn build`
+- The images can’t pop or flicker, they must appear smoothly on the screen.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Story
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- As a user visits the root URL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The user can see a grid of images that fill the screen on load
 
-### `yarn eject`
+- As the user scrolls the browser, more images are loaded dynamically
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- When the user clicks an image, it is removed from the list and disappears
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Acceptance criteria
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The grid should be responsive, showing 2 columns on small devices and more as the device width growths.
