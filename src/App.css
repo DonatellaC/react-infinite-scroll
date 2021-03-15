@@ -1,5 +1,27 @@
-.App {
-  text-align: center;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
+.column {
+  margin: auto;
+  display: flex;
+}
 
+.column img {
+  width: 150px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .column img {
+   width: 130px;
+ }
+}
+
+@media screen and (min-width: 768px) {
+ .column img {
+ width: 300px;
+}
+}

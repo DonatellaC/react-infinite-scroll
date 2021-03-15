@@ -5,11 +5,13 @@ import './App.css';
 function App() {
   const [photos, setPhotos] = useState([]);
 
-  const getPhotos = () => {
+  const getPhotos = (page) => {
     axios
-      .get("https://jsonplaceholder.typicode.com/photos")
+      .get(`https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=10`)
       .then((response) => {
-        setPhotos(response.data);
+        setPhotos(
+          [...photos, ...response.data]
+        );
       })
       .catch((error) => {
         console.log(error);
@@ -19,11 +21,12 @@ function App() {
   useEffect(() => {
     getPhotos();
   }, []);
-  console.log("photos", photos);
+
+
   return (
-    <div className="App">
+    <div className="row">
       {photos.map((photo) => (
-        <div key={photo.id}>
+        <div className="column" key={photo.id}>
           <img src={`${photo.url}`} alt="placeholder" />
         </div>
       ))}
