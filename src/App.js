@@ -44,13 +44,35 @@ function App() {
     }
   }, [isLoading]);
 
+  // DELETE
+  const deletePhotos = (id) => {
+    axios.delete(`https://jsonplaceholder.typicode.com/photos/${id}`);
+
+    const newPhotosList = photos.filter((photo) => {
+      return photo.id !== id;
+    });
+
+    setPhotos(newPhotosList);
+  };
+
+  useEffect((id) => {
+    setPhotos((prevPhotos) => {
+      return prevPhotos.filter((photos) => photos.id !== id);
+    });
+    deletePhotos();
+  }, []);
+
   return (
     <div>
       <div className="row">
         {photos.map((item) => {
           return (
             <div className="column" key={item.id}>
-              <img src={item.url} alt={item.title} />
+              <img
+                src={item.url}
+                alt={item.title}
+                onClick={() => deletePhotos(item.id)}
+              />
             </div>
           );
         })}
