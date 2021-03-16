@@ -1,6 +1,8 @@
 # React App
 
-## Instructions
+## 🔹 [Live demo](https://codesandbox.io/s/infinite-scroll-react-3nwl7)
+
+## 📌Instructions
 
 - Please complete the user story below.
 
@@ -31,3 +33,24 @@
 ### Acceptance criteria
 
 - The grid should be responsive, showing 2 columns on small devices and more as the device width growths.
+
+## 📌 Getting started
+
+```instruction
+- git clone https://github.com/DonatellaC/react-infinite-scroll
+- cd react-infinite-scroll
+- npm start
+```
+
+## 📌 Technologies
+
+- HTML
+- CSS
+- JavaScript
+- React
+
+## 📌 APIs
+
+- [Photos API](https://jsonplaceholder.typicode.com/photos)
+
+![Img](./images/Img.png)
