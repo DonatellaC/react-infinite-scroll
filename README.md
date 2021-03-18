@@ -39,6 +39,7 @@
 ```instruction
 - git clone https://github.com/DonatellaC/react-infinite-scroll
 - cd react-infinite-scroll
+- npm install
 - npm start
 ```
 
@@ -48,6 +49,7 @@
 - CSS
 - JavaScript
 - React
+- Axios
 
 ## 📌 APIs
 

@@ -5,22 +5,26 @@ import "./App.css";
 function App() {
   const [photos, setPhotos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [item, setItem] = useState(1);
-  const itemRef = useRef(null);
+  const [page, setPage] = useState(1);
+  const [error, setError] = useState();
+  const pageRef = useRef(null);
 
+  //GET
   const getPhotos = () => {
     setIsLoading(true);
-
-    //GET
     axios
       .get(
-        `https://jsonplaceholder.typicode.com/photos?_page=${item}&_limit=10`
+        `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=15`
       )
       .then((response) => {
         const newArr = photos.concat(response.data);
         setPhotos(newArr);
-        setItem((item) => item + 1);
+        setPage((page) => page + 1);
         setIsLoading(false);
+      })
+      .catch((err) => {
+        setError("Error: Page Not Found");
+        console.log(err.response);
       });
   };
 
@@ -32,14 +36,14 @@ function App() {
     if (entry.isIntersecting && !isLoading) {
       observer.unobserve(entry.target);
       getPhotos();
-      observer.observe(itemRef.current);
+      observer.observe(pageRef.current);
     }
   };
 
   useEffect(() => {
     if (!isLoading) {
       const observer = new IntersectionObserver(onIntersect, { threshold: 1 });
-      if (itemRef.current) observer.observe(itemRef.current);
+      if (pageRef.current) observer.observe(pageRef.current);
       return () => observer && observer.disconnect();
     }
   }, [isLoading]);
@@ -47,37 +51,33 @@ function App() {
   // DELETE
   const deletePhotos = (id) => {
     axios.delete(`https://jsonplaceholder.typicode.com/photos/${id}`);
-
     const newPhotosList = photos.filter((photo) => {
       return photo.id !== id;
     });
-
     setPhotos(newPhotosList);
   };
 
-  useEffect((id) => {
-    setPhotos((prevPhotos) => {
-      return prevPhotos.filter((photos) => photos.id !== id);
-    });
-    deletePhotos();
-  }, []);
-
   return (
     <div>
-      <div className="row">
-        {photos.map((item) => {
-          return (
-            <div className="column" key={item.id}>
-              <img
-                src={item.url}
-                alt={item.title}
-                onClick={() => deletePhotos(item.id)}
-              />
-            </div>
-          );
-        })}
-      </div>
-      <div ref={itemRef}>{isLoading && "Loading..."}</div>
+      {error && <p>{error}</p>}
+      {!error && (
+        <div>
+          <div className="row">
+            {photos.map((item) => {
+              return (
+                <div className="column" key={item.id}>
+                  <img
+                    src={item.url}
+                    alt={item.title}
+                    onClick={() => deletePhotos(item.id)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div ref={pageRef}>{isLoading && "Loading..."}</div>
+        </div>
+      )}
     </div>
   );
 }
